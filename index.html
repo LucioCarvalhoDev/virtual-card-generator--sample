@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/card.css">
+    <script src="js/dom-to-image.js"></script>
+
+    <title>Gerador de Cartão</title>
+</head>
+
+<body>
+   
+    <h1>Cartão Fidelidade</h1>
+
+    <section class="card-gen">
+
+        <form name="form-card" class="card-gen_form">
+            <div class="justify">
+                <input type="text" name="Nome" placeholder="Nome do Cliente">
+                <input type="date" name="Validade">
+            </div>
+           
+        </form>
+
+        <div class="center">
+            <div class="card-gen_preview" id="card">
+                <img src="./img/cartao-fidelidade.png" alt="">
+                <div class="card-gen_preview_fields">
+                    <p>Nome: <span id="preview-name"></span></p>
+                    <p>Validade: <span id="preview-val"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-gen_controls">
+            <button class="card-gen_controls download" id="download">Gerar Cartão</button>
+        </div>
+
+    </section>
+
+
+    <!--final aqui-->
+
+    <footer>
+        <p>Lúcio Carvalho Almeida</p>
+        <div>
+            <a href="https://github.com/LucioCarvalhoDev">Github</a><span>&ThickSpace;;</span>
+            <a href="https://www.linkedin.com/in/l%C3%BAcio-carvalho-almeida-0599881b0/">Linkedin</a>
+        </div>
+    </footer>
+
+    <script>
+        let form = document.forms['form-card'];
+        let card = document.getElementById("card");
+        let cardName = document.getElementById("preview-name");
+        let data = new FormData();
+
+        form.addEventListener('input', updatePreview)
+    
+        function updatePreview(e) {
+            data = new FormData(form);
+
+            cardName.textContent = data.get("Nome")
+            document.getElementById("preview-val").textContent = data.get("Validade")
+        }
+
+        let btnDownload = document.getElementById("download")
+
+        function downloadCard() {
+            domtoimage.toPng(card)
+                .then(function (URL) {
+                    let link = document.createElement('a');
+                    link.href = URL;
+                    link.setAttribute('download', link.href)
+                    link.download = data.get("Nome").split(` `).join(`_`).trim().toLowerCase() + `.png`;
+                    link.click()
+                })
+        }
+
+        btnDownload.onclick = downloadCard
+
+        updatePreview()
+
+    </script>
+
+
+
+
+</body>
+
+</html>

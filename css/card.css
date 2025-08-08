@@ -1,0 +1,132 @@
+body {
+    padding: 5px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.card-gen {
+    width: 558px;
+    box-sizing: border-box;
+    align-self: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* .card-gen > * {
+    display: flex;
+} */
+
+.card-gen button {
+    padding: .9rem 1.2rem;
+    border-radius: 15px;
+    size: 1.5rem;
+}
+
+.card-gen button.clear {
+    width: 100%;
+    margin-bottom: 5px;
+
+}
+
+.card-gen button.clear:hover {
+    cursor: pointer;
+    outline: 1px solid black
+}
+
+.card-gen_form input {
+    box-sizing: border-box;
+    display: inline;
+    line-height: 2rem;
+    padding: 2px 1rem;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 49%;
+    font-weight: bold;
+}
+
+.justify {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+}
+
+.card-gen_form input:hover {
+  color: black;
+  transform: none;
+  box-shadow: none;
+}
+
+.card-gen_form > input {
+    width: 100%;
+}
+
+.card-gen_preview {
+    position: relative;
+    justify-content: center;
+    width: 558px;
+    height: 358px;
+    min-width: 558px;
+    min-height: 358px;
+    background-size: contain;
+}
+
+.card-gen_preview img {
+   width: 100%;
+   height: 100%;
+}
+
+.card-gen_controls {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.card-gen button.download {
+    padding: .9rem 1.2rem;
+    border-radius: 15px;
+    background-color: #d8bbc5;
+    size: 1.5rem
+}
+
+.card-gen_controls > .download:hover {
+    cursor: pointer;
+    outline: 1px solid black;
+}
+
+.card-gen_preview_fields {
+    /* border: 1px solid black; */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    bottom: 10%;
+    left: 2rem;
+    width: 55%;
+    height: 20%;
+    color: #111111;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-gen_preview_fields > p {
+    font-size: 18px;
+    /* font-weight: bold; */
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+/*ajuste do fundo cartao*/
+footer {
+    text-align: center;
+}
